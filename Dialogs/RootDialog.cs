@@ -5,7 +5,7 @@ using Microsoft.Bot.Connector;
 using System.Threading;
 
 
-namespace SimpleEchoBot.Dialogs
+namespace Microsoft.Bot.Sample.SimpleEchoBot
 {
     [Serializable]
     public class RootDialog : IDialog<object>
