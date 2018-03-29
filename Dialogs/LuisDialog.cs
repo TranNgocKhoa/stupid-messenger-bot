@@ -20,11 +20,11 @@ namespace Microsoft.Bot.Sample.SimpleEchoBot
         [LuisIntent("None")]
         public async Task None(IDialogContext context, LuisResult result)
         {
-            //string message = $"Xin lỗi, em còn ngu lắm, em không hiểu '{result.Query} là gì'. Gõ 'help' nếu quý khách cần người hỗ trợ.";
+            string message = $"Xin lỗi, em còn ngu lắm, em không hiểu '{result.Query} là gì'. Gõ 'help' nếu quý khách cần người hỗ trợ.";
 
-            // alternatively, you could forward to QnA Dialog if no intent is found
+            //alternatively, you could forward to QnA Dialog if no intent is found
 
-            //await context.PostAsync(message);
+           await context.PostAsync(message);
 
             context.Wait(this.MessageReceived);
         }
@@ -43,6 +43,7 @@ namespace Microsoft.Bot.Sample.SimpleEchoBot
         public async Task AvailableRoom(IDialogContext context, LuisResult result)
         {
             string message = $"Ghi nhận yêu cầu lấy danh sách phòng trống";
+
             await context.PostAsync(message);
             context.Wait(this.MessageReceived);
         }
@@ -51,7 +52,7 @@ namespace Microsoft.Bot.Sample.SimpleEchoBot
             PhongDon, PhongDoi
         }
         [LuisIntent("RoomPrice")]
-        public async Task RoomPrice(IDialogContext context, IAwaitable<Selection> result)
+        public async Task RoomPrice(IDialogContext context, LuisResult result)
         {
             string message = $"Ghi nhận yêu cầu hỏi giá phòng";
             await context.PostAsync(message);
